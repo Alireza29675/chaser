@@ -1,8 +1,9 @@
 {
   "name": "chaser",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "JavaScript variable chaser",
   "main": "dist/index.js",
+  "types": "./lib/main.d.ts",
   "scripts": {
     "test": "yarn test",
     "start": "webpack-dev-server --mode development",
