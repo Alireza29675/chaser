@@ -1,5 +1,6 @@
 import chaser from '../../src'
 
+// TODO: Make a better example
 const variable = chaser(0);
 
 const cValue = document.querySelector('.chaser-value span');
