@@ -3,7 +3,7 @@
   "version": "0.2.2",
   "description": "JavaScript variable chaser",
   "main": "dist/index.js",
-  "types": "./lib/main.d.ts",
+  "types": "./main.d.ts",
   "scripts": {
     "test": "yarn test",
     "start": "webpack-dev-server --mode development",
