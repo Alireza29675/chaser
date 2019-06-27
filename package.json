@@ -1,7 +1,7 @@
 {
-  "name": "",
-  "version": "0.1.0",
-  "description": "",
+  "name": "chaser",
+  "version": "0.0.0",
+  "description": "JavaScript variable chaser",
   "main": "dist/index.js",
   "scripts": {
     "test": "yarn test",
@@ -15,7 +15,7 @@
     "v:minor": "npm version minor --force",
     "v:major": "npm version major --force"
   },
-  "repository": "",
+  "repository": "https://github.com/Alireza29675/chaser.git",
   "author": "Alireza Sheikholmolouki <alireza.sheikholmolouki@gmail.com> (https://github.com/Alireza29675)",
   "license": "MIT",
   "devDependencies": {
