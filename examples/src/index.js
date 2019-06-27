@@ -1,3 +1,17 @@
-import pkg from '../../src'
+import chaser from '../../src'
 
-pkg()
+const a = chaser(10);
+
+const cValue = document.querySelector('.chaser-value span');
+const tValue = document.querySelector('.target-value span');
+
+setInterval(() => {
+    a.target += 10;
+}, 2000)
+
+const loop = () => {
+    requestAnimationFrame(loop);
+    cValue.innerHTML = a.value;
+    tValue.innerHTML = a.target;
+}
+loop();

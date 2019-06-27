@@ -2,38 +2,38 @@ import linear from 'eases/linear'
 import easeIn from 'eases/sine-in'
 import easeOut from 'eases/sine-out'
 
-const chasers = [];
-
-// TODO: Calling center must be improved in performance (Smart calls)
-const centralLoop = () => {
-    for (const chaser of chasers) chaser.loop();
-    requestAnimationFrame(centralLoop);
-}
-centralLoop();
-
+const clamp = (val, min, max) => Math.min(max, Math.max(min, val));
 class Chaser {
 
-    static LINEAR = linear;
-    static EASE_IN = easeIn;
-    static EASE_OUT = easeOut;
-
-    timingFunction = Chaser.LINEAR;
-    value = 0;
-    target = 0;
-
-    duration = 1000;
-
-    constructor (defaultValue, duration, timingFunction) {
-        this.value = this.target = defaultValue;
+    constructor (defaultValue = 0, duration = 1000, timingFunction = linear) {
+        this._initial = this._target = defaultValue;
+        this.timingFunction = timingFunction;
+        this.duration = duration;
+        this.startTime = 0;
     }
 
-    loop () {
-
+    set target (value) {
+        this.startTime = Date.now()
+        this._initial = this.value;
+        this._target = value;
     }
+
+    get target () {
+        return this._target;
+    }
+
+    set value (instantValue) {
+        // TODO: Instant change
+    }
+
+    get value () {
+        let passedTime = clamp(((Date.now() - this.startTime) / this.duration), 0, 1);
+        return this._initial + (this._target - this._initial) * this.timingFunction(passedTime);
+    }
+
 }
 
-export default chaser = (defaultValue, duration, timingFunction) => {
+export default (defaultValue, duration, timingFunction) => {
     const chaser = new Chaser(defaultValue, duration, timingFunction);
-    chasers.push(chaser);
     return chaser;
 }
