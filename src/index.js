@@ -3,13 +3,30 @@ import easeIn from 'eases/sine-in'
 import easeOut from 'eases/sine-out'
 
 const clamp = (val, min, max) => Math.min(max, Math.max(min, val));
+
+const types = {
+    linear,
+    'ease-in': easeIn,
+    'ease-out': easeOut
+}
+
 class Chaser {
 
-    constructor (defaultValue = 0, duration = 1000, timingFunction = linear) {
+    constructor (defaultValue = 0, duration = 1000, timingFunction = 'ease-in') {
         this._initial = this._target = defaultValue;
         this.timingFunction = timingFunction;
         this.duration = duration;
         this.startTime = 0;
+    }
+
+    set timingFunction (value) {
+        if (!types[value]) return console.error(`${value} is not a timing-function!`);
+        this._timingFunction = types[value];
+        this._timingFunctionName = value;
+    }
+
+    get timingFunction () {
+        return this._timingFunctionName;
     }
 
     set target (value) {
@@ -24,12 +41,12 @@ class Chaser {
     }
 
     set value (instantValue) {
-        // TODO: Instant change
+        this._initial = this._target = instantValue;
     }
 
     get value () {
         let passedTime = clamp(((Date.now() - this.startTime) / this.duration), 0, 1);
-        return this._initial + (this._target - this._initial) * this.timingFunction(passedTime);
+        return this._initial + (this._target - this._initial) * this._timingFunction(passedTime);
     }
 
 }
