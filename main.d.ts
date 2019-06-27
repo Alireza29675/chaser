@@ -9,4 +9,6 @@ declare interface Chaser {
 
 declare let chaser: (defaultValue: number, duration: number, timingFunction: types) => Chaser;
 
-export default chaser;
+declare module 'chaser' {
+    export default chaser;
+}
