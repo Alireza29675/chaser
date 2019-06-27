@@ -1,5 +1,7 @@
 # Chaser
 
+![chaser](https://user-images.githubusercontent.com/2771377/60268250-400b2500-9901-11e9-8ab4-69478a4d9dc2.png)
+
 JavaScript variable chaser
 
 ## Installation
