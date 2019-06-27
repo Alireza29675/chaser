@@ -13,8 +13,9 @@ class Chaser {
     }
 
     set target (value) {
-        this.startTime = Date.now()
+        if (value === this.target) return;
         this._initial = this.value;
+        this.startTime = Date.now()
         this._target = value;
     }
 
