@@ -1,4 +1,4 @@
-type types = 'linear' | 'ease-in' | 'ease-out'
+type types = 'linear' | 'ease-in' | 'ease-out' | 'ease-in-out'
 
 declare interface Chaser {
     target: number,
@@ -7,7 +7,7 @@ declare interface Chaser {
     timingFunction: types
 }
 
-declare let chaser: (defaultValue: number, duration: number, timingFunction: types) => Chaser;
+declare let chaser: (defaultValue: number, duration?: number, timingFunction?: types) => Chaser;
 
 declare module 'chaser' {
     export default chaser;

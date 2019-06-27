@@ -1,13 +1,12 @@
-import linear from 'eases/linear'
-import easeIn from 'eases/sine-in'
-import easeOut from 'eases/sine-out'
+import easing from './easing'
 
 const clamp = (val, min, max) => Math.min(max, Math.max(min, val));
 
 const types = {
-    linear,
-    'ease-in': easeIn,
-    'ease-out': easeOut
+    linear: easing.linear,
+    'ease-in-out': easing.easeInOutCubic,
+    'ease-in': easing.easeInCubic,
+    'ease-out': easing.easeOutCubic
 }
 
 class Chaser {

@@ -32,7 +32,5 @@
     "webpack-cli": "^3.3.3",
     "webpack-dev-server": "^3.7.1"
   },
-  "dependencies": {
-    "eases": "^1.0.8"
-  }
+  "dependencies": {}
 }
