@@ -1,7 +1,7 @@
 {
-  "name": "",
-  "version": "0.1.0",
-  "description": "",
+  "name": "chaser",
+  "version": "0.3.0",
+  "description": "Javascript variable chaser",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
@@ -20,8 +20,8 @@
     "v:minor": "npm version minor --force",
     "v:major": "npm version major --force"
   },
-  "repository": "",
-  "author": "TheaterJS Oy <hello@theaterjs.com>",
+  "repository": "https://github.com/Alireza29675/chaser.git",
+  "author": "Alireza Sheikholmolouki",
   "license": "MIT",
   "devDependencies": {
     "@babel/cli": "^7.5.5",
@@ -50,8 +50,5 @@
     "webpack-cli": "^3.3.3",
     "webpack-dev-server": "^3.7.1",
     "@babel/preset-react": "^7.0.0"
-  },
-  "dependencies": {
-    "react": "^16.8.6"
   }
 }

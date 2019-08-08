@@ -8,7 +8,7 @@ const htmlWebpackPlugin = new HtmlWebpackPlugin({
 });
 
 module.exports = {
-    entry: path.join(__dirname, "examples/browser/index.tsx"),
+    entry: path.join(__dirname, "examples/browser/index.ts"),
     module: {
         rules: [
             {
