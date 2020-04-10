@@ -1,6 +1,6 @@
 {
     "name": "chaser",
-    "version": "0.4.2",
+    "version": "0.4.3",
     "description": "Javascript variable chaser",
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
