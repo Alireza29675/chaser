@@ -3,9 +3,9 @@ import * as easing from './easing'
 const clamp = (val: number, min: number, max: number) => Math.min(max, Math.max(min, val))
 
 interface IChaserArgs {
-    defaultValue: number
+    initialValue: number
     duration: number
-    timingFunction: easing.TTimingFunction
+    timingFunction?: easing.TTimingFunction
 }
 
 class Chaser {
@@ -16,8 +16,8 @@ class Chaser {
     private privateTarget: number
     private startTime: number = 0
 
-    constructor({ defaultValue, duration, timingFunction }: IChaserArgs) {
-        this.privateInitial = this.privateTarget = defaultValue
+    constructor({ initialValue, duration, timingFunction = easing.easeInOutCubic }: IChaserArgs) {
+        this.privateInitial = this.privateTarget = initialValue
         this.timingFunction = timingFunction
         this.duration = duration
     }
@@ -45,10 +45,10 @@ class Chaser {
     }
 }
 
-export default ({ defaultValue = 0, duration = 1000, timingFunction = easing.easeInCubic }: IChaserArgs) => {
+export default ({ initialValue = 0, duration = 1000, timingFunction }: IChaserArgs) => {
     const chaser = new Chaser({
-        defaultValue,
         duration,
+        initialValue,
         timingFunction,
     })
     return chaser
