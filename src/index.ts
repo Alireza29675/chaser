@@ -1,4 +1,5 @@
 import * as easing from './easing'
+import { useChaser } from './hooks'
 
 const clamp = (val: number, min: number, max: number) => Math.min(max, Math.max(min, val))
 
@@ -54,4 +55,4 @@ export default ({ initialValue = 0, duration = 1000, timingFunction }: IChaserAr
     return chaser
 }
 
-export { easing }
+export { easing, useChaser }
