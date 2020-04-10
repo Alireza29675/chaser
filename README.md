@@ -13,24 +13,30 @@ npm install --save chaser
 ## Usage
 
 ```javascript
-const chaser = require('chaser');
+const chaser = require('chaser')
 
-const myAnimatedVar = chaser(12); // 12 is our initial value here
-myAnimateVar.target = 20;
+const myAnimatedVar = chaser(12) // 12 is our initial value here
+myAnimateVar.target = 20
 
 setInterval(() => {
-    console.log(myAnimatedVar.value); // You can use .value anywhere and it will be generated accurately by timing function and passed time.
+    console.log(myAnimatedVar.value) // You can use .value anywhere and it will be generated accurately by timing function and passed time.
 }, 10)
 ```
 
-## More options
+## Chaser using React Hooks with `useChaser`
 
 ```javascript
-const chaser = require('chaser');
+import { useChaser } from 'chaser'
 
-const myAnimatedVar = chaser();
-myAnimateVar.duration = 2000; // 2000ms of transition (default 1000ms)
-myAnimateVar.target = 20;
+function MovingBox() {
+    const [posX, setPosX] = useChaser(0 /* initialValue */)
+
+    return (
+        <div style={{ transform: `translateX(${posX}px)` }}>
+            <button onClick={() => setPosX(Math.random() * 100)} />
+        </div>
+    )
+}
 ```
 
 ## Example
@@ -40,4 +46,4 @@ If you're looking for an example, here's a unclean example! but works:
 
 ## Contribute
 
-I'll be glad if you fork and contribute this. I believe it can help in our apps.
+Put issues! Suggest me what you need.
